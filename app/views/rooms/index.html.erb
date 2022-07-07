@@ -1,0 +1,26 @@
+<%# <div class="cover mb-4 d-flex align-items-center justify-content-center"> %>
+  <%# <div class="text-center text-white">
+    <h1>Save any kind of movies</h1>
+    <h3 class="typed-js" data-controller="typed-js"></h3>
+  </div>
+</div> %>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Rooms</h3>
+  </div>
+  <div class="row">
+    <% @rooms.each do |room| %>
+      <div class="col-6 border border-primary">
+        <div>
+            Hôtel : <%= room.hotel.name %> <br>
+            Adresse : <%= room.hotel.address %> <br>
+            Nombre de personnes : <%= room.capacity %> <br>
+            Prix : <%= room.price_per_night %> € / nuit<br>
+        </div>
+        <div>
+          <%= link_to "Voir le détail", room_path(room), class:"btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
