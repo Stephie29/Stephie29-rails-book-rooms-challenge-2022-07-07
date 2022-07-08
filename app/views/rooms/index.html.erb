@@ -1,27 +1,7 @@
-<%# <div class="cover mb-4 d-flex align-items-center justify-content-center"> %>
-  <%# <div class="text-center text-white">
-    <h1>Save any kind of movies</h1>
-    <h3 class="typed-js" data-controller="typed-js"></h3>
-  </div>
-</div> %>
 <div class="container py-5">
-  <h1 class="mb-0">Réservez dès maintenant une nuit d'hôtel à <strong> PRIX RÉDUIT</strong> !</h1>
-
-  <div class="container-fluid justify-content-center container-search">
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-        <%= form_for :room, url: rooms_path, method: :post do |f| %>
-          <%= f.text_field :starts_at, placeholder: "Date d'arrivée" %>
-          <%= f.text_field :ends_at, placeholder: "Date de départ" %>
-          <%= f.text_field :address, placeholder: "Addresse" %>
-          <%= f.submit "Rechercher", class: "search-btn" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
+  <h1 class="mb-0">Réservez dès maintenant une nuit d'hôtel à <strong> PRIX RÉDUIT</strong> !</h1> <br>
   <div class="container">
-    <div class="row row-cols-auto mt-2 gy-5">
+    <div class="row row-cols-auto gy-5">
       <% @rooms.each do |room| %>
         <div class="card-room col-5 p-2 br-5">
           <div class="row">
@@ -31,13 +11,12 @@
             <div class="col-8 card-room-infos">
               <h2>Hôtel : <%= room.hotel.name %> </h2>
               <p>Adresse : <%= room.hotel.address %></p>
-              <p>Nombre de personnes : <%= room.capacity%></p>
               <div>
                 <h2 class="card-trip-pricing"><%= room.price_per_night %> € / nuit</h2>
               </div>
             </div>
             <div class="col-12 text-center my-3">
-              <%= link_to "Voir le détail", room_path(room), class:"btn btn-primary search-btn" %>
+              <%= link_to "Voir le détail", new_room_booking_path(room), class:"btn btn-primary search-btn" %>
             </div>
           </div>
         </div>
@@ -46,4 +25,7 @@
     </div>
   </div>
 </div>
+  <a href="#navbar-example2">
+    <i class="fas fa-arrow-circle-up scroll-up-button"></i>
+  </a>
 <%= render 'shared/footer' %>

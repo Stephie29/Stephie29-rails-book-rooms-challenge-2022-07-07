@@ -1,11 +1,14 @@
 .footer {
-  background: $med-green;
+  background: $light-green;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  box-shadow: -1px -5px 15px -5px rgba(143,140,140,0.75);
+  -webkit-box-shadow: -1px -5px 15px -5px rgba(143,140,140,0.75);
+  -moz-box-shadow: -1px -5px 15px -5px rgba(143,140,140,0.75);
 }
 .footer-links {
   display: flex;

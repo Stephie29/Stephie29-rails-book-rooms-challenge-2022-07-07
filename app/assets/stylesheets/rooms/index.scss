@@ -53,3 +53,22 @@ h1{
 .br-5 {
   border-radius: 5;
 }
+
+.scroll-up-button{
+  position: fixed;
+  bottom: 40px;
+  right: 0px;
+  color: $med-green;
+  font-size: 40px;
+  float: right;
+  margin-right: 30px;
+  margin-top: -50px;
+  &:hover {
+    color: #7e98646e;
+    cursor: pointer;
+  }
+}
+.card-trip-pricing{
+  padding-top: 45px;
+  text-align: end;
+}

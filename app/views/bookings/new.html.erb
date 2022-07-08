@@ -1,0 +1,45 @@
+<div class="container ms-4">
+  <div class="row">
+    <div class="col-auto p-0">
+      <p class="back-icon m-3">
+        <%= link_to :back, class:"back" do %>
+          <i class="fas fa-arrow-circle-left"></i>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+    <div class="col">
+      <div class="container pt-4 shadow-container">
+
+        <div class="container">
+          <div class="row pt-4">
+
+            <div class="col-6 bg-light p-3">
+             <h1 class="title-show"><strong> <%= @room.hotel.name %> </strong></h1>
+              <div class="card-room-infos">
+              <img src="https://source.unsplash.com/random/300x300/?hotel,<%= @room.id %>" />
+                <p> <strong> Adresse : </strong> <%= @room.hotel.address %></p>
+                <p> <strong> Nombre de personnes : </strong> <%= @room.capacity%></p>
+              </div>
+              <div>
+                <h2 class="card-trip-pricing"><%= @room.price_per_night %> € / nuit</h2>
+              </div>
+            </div>
+            <div class="col-1">
+            </div>
+
+            <div class="col-5">
+                <div class="bg-light p-3">
+                  <%= simple_form_for [@room, @booking], url: room_bookings_path, method: :post do |b| %>
+                    <%= b.input :starts_at, label: "Date d'arrivée", as: :string, type: :text, :input_html => { :class => 'datepicker' } %>
+                    <%= b.input :ends_at, label: "Date de départ", as: :string, type: :text, :input_html => { :class => 'datepicker' } %>
+                    <%= b.submit "Réserver", class: "search-btn" %>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%= render 'shared/footer' %>

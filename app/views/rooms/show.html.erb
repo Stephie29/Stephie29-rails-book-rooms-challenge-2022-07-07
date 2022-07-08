@@ -11,26 +11,30 @@
 </div>
     <div class="col">
       <div class="container bg-light pt-4 shadow-container">
-        <p class="title-show"><strong> <%= @room.hotel.name %> </strong></p>
-        <div class="row">
+        <h1 class="title-show"><strong> <%= @room.hotel.name %> </strong></h1>
+
           <div class="col-1">
           </div>
-          <div class="col">
-            <div class="container border-start border-dark">
-              <div class="row pt-4">
+          <div class="col-6">
+            <div class="container >
+              <div class="row pt-4" >
                 <div class="col">
-                  <img src="https://unsplash.com/s/photos/hotel-bedroom?orientation=squarish.pjg" />
+                  <img src="https://source.unsplash.com/random/300x300/?hotel,<%= @room.id %>" />
                     <div class="card-room-infos">
-                    <p>Adresse : <%= @room.hotel.address %></p>
-                    <p>Nombre de personnes : <%= @room.capacity%></p>
+                    <p> <strong> Adresse : </strong> <%= @room.hotel.address %></p>
+                    <p> <strong> Nombre de personnes : </strong> <%= @room.capacity%></p>
                     </div>
                     <div>
                     <h2 class="card-trip-pricing"><%= @room.price_per_night %> € / nuit</h2>
                     </div>
+                    <div class="col-12 text-center my-3">
+                      <%= link_to "réserver", new_booking_path(@room), class:"btn btn-primary search-btn" %>
+                    </div>
                 </div>
               </div>
             </div>
-          </div>
+
         </div>
       </div>
     </div>
+<%= render 'shared/footer' %>

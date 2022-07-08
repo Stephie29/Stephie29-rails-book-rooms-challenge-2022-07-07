@@ -1,27 +1,34 @@
 class BookingsController < ApplicationController
-  before_action :set_list, only: [:new, :create]
 
   def new
-    @booking = Booking.new
+    @booking = Booking.new(room_id: params[:room_id])
+    @room = Room.find(params[:room_id])
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @bookmark.room = @room
+    @booking = Booking.new(
+      user_id: current_user.id,
+      room_id: params[:room_id],
+      starts_at: booking_params[:starts_at],
+      ends_at: booking_params[:ends_at]
+    )
+    @room = Room.find(params[:room_id])
+
     if @booking.save
-      redirect_to room_path(@room)
+      redirect_to booking_path(@booking.id), notice: "Félicitation ! Vous avez réservé. "
     else
       render :new
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @room = Room.find(@booking.room_id)
   end
 
   private
 
   def booking_params
     params.require(:booking).permit(:starts_at, :ends_at)
-  end
-
-  def set_list
-    @list = List.find(params[:list_id])
   end
 end

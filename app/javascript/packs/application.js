@@ -19,6 +19,7 @@ ActiveStorage.start()
 // ----------------------------------------------------
 
 // External imports
+// import "jquery";
 import "bootstrap";
 
 // Internal imports, e.g:
@@ -26,5 +27,4 @@ import "bootstrap";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
 });
