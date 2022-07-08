@@ -5,22 +5,45 @@
   </div>
 </div> %>
 <div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">Rooms</h3>
-  </div>
-  <div class="row">
-    <% @rooms.each do |room| %>
-      <div class="col-6 border border-primary">
-        <div>
-            Hôtel : <%= room.hotel.name %> <br>
-            Adresse : <%= room.hotel.address %> <br>
-            Nombre de personnes : <%= room.capacity %> <br>
-            Prix : <%= room.price_per_night %> € / nuit<br>
-        </div>
-        <div>
-          <%= link_to "Voir le détail", room_path(room), class:"btn btn-primary" %>
-        </div>
+  <h1 class="mb-0">Réservez dès maintenant une nuit d'hôtel à <strong> PRIX RÉDUIT</strong> !</h1>
+
+  <div class="container-fluid justify-content-center container-search">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <%= form_for :room, url: rooms_path, method: :post do |f| %>
+          <%= f.text_field :starts_at, placeholder: "Date d'arrivée" %>
+          <%= f.text_field :ends_at, placeholder: "Date de départ" %>
+          <%= f.text_field :address, placeholder: "Addresse" %>
+          <%= f.submit "Rechercher", class: "search-btn" %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row row-cols-auto mt-2 gy-5">
+      <% @rooms.each do |room| %>
+        <div class="card-room col-5 p-2 br-5">
+          <div class="row">
+            <div class="col-4">
+              <img src="https://source.unsplash.com/random/300x300/?hotel,<%= room.id %>" />
+            </div>
+            <div class="col-8 card-room-infos">
+              <h2>Hôtel : <%= room.hotel.name %> </h2>
+              <p>Adresse : <%= room.hotel.address %></p>
+              <p>Nombre de personnes : <%= room.capacity%></p>
+              <div>
+                <h2 class="card-trip-pricing"><%= room.price_per_night %> € / nuit</h2>
+              </div>
+            </div>
+            <div class="col-12 text-center my-3">
+              <%= link_to "Voir le détail", room_path(room), class:"btn btn-primary search-btn" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      <% end %>
+    </div>
   </div>
 </div>
+<%= render 'shared/footer' %>

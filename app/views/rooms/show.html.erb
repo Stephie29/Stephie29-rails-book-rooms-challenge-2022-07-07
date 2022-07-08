@@ -1,0 +1,36 @@
+<div class="container ms-4">
+  <div class="row">
+    <div class="col-auto p-0">
+      <p class="back-icon m-3">
+        <%= link_to :back do %>
+          <i class="fas fa-arrow-circle-left"></i>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+    <div class="col">
+      <div class="container bg-light pt-4 shadow-container">
+        <p class="title-show"><strong> <%= @room.hotel.name %> </strong></p>
+        <div class="row">
+          <div class="col-1">
+          </div>
+          <div class="col">
+            <div class="container border-start border-dark">
+              <div class="row pt-4">
+                <div class="col">
+                  <img src="https://unsplash.com/s/photos/hotel-bedroom?orientation=squarish.pjg" />
+                    <div class="card-room-infos">
+                    <p>Adresse : <%= @room.hotel.address %></p>
+                    <p>Nombre de personnes : <%= @room.capacity%></p>
+                    </div>
+                    <div>
+                    <h2 class="card-trip-pricing"><%= @room.price_per_night %> € / nuit</h2>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

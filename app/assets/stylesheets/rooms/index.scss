@@ -1,0 +1,55 @@
+h1{
+  font-size: 30px;
+  margin: auto;
+  text-align: center;
+}
+
+.justify-content-center {
+ text-align: center;
+ margin: 20px;
+}
+
+.card-room {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+}
+
+.card-room img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-room h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-room p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-room .card-room-infos {
+  padding: 16px;
+}
+
+.py-5{
+  padding-bottom: none !important;
+}
+
+.search-btn {
+  margin-top: 10px;
+  background-color:  $med-green !important;
+  border-color:  $dark-green !important;
+  color: $dark-green  !important;
+  border-radius: 10% !important;
+}
+
+.br-5 {
+  border-radius: 5;
+}

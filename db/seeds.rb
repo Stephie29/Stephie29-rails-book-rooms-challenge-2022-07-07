@@ -13,7 +13,7 @@ User.destroy_all
 puts "Creating hotels..."
 hotels = Hotel.create(
   [
-    { name: "Dishoom", address: "54 Promenade des Anglais 06000 Nice" },
+    { name: "Paradise Hotel", address: "54 Promenade des Anglais 06000 Nice" },
     { name: "Okko Hotel", address: "30 A, rue d’Alsace 75010 — Paris" },
     { name: "Hotel Amour", address: "3 Av. des Fleurs 34000 Montpellier" },
     { name: "Premiere Classe Hotel", address: "117 Traverse de la Montre C.C. Grand V, Marseille" },
