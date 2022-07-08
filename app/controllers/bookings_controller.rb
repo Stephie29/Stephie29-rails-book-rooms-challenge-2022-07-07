@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     @room = Room.find(params[:room_id])
 
     if @booking.save
-      redirect_to booking_path(@booking.id), notice: "Félicitation ! Vous avez réservé. "
+      redirect_to room_path(@room.id), notice: "Félicitation ! Vous avez réservé. "
     else
       render :new
     end
