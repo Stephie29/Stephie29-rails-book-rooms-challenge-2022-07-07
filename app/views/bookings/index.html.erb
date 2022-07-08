@@ -1,0 +1,13 @@
+<h1 class="my-3">Mes voyages</h1>
+<div class="container-fluid bg-light row col-6 mx-auto">
+  <div class="col-12 mb-3">
+    <% @booking_list.each do |booking| %>
+    <div class="p-3">
+      Hotel : <%= booking.room.hotel.name %><br>
+      Du <%= booking.ends_at %> au <%= booking.starts_at %><br>
+      Prix : <%= booking.room.price_per_night %><br>
+      Pour : <%= booking.room.capacity %> personnes<br>
+    </div>
+    <% end %>
+  </div>
+</div>

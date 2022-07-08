@@ -1,7 +1,7 @@
 <div class="container ms-4">
   <div class="row">
     <div class="col-auto p-0">
-      <p class="back-icon m-3">
+      <p class="back-icon m-3 mb-0">
         <%= link_to rooms_path do %>
           <i class="fas fa-arrow-circle-left"></i>
         <% end %>
@@ -10,13 +10,13 @@
   </div>
 </div>
     <div class="col">
-      <div class="container pt-4 shadow-container">
+      <div class="container shadow-container">
         <div class="container">
           <div class="row pt-4">
             <div class="col-6 bg-light p-3">
              <h1 class="title-show"><strong> <%= @room.hotel.name %> </strong></h1> <br>
               <div class="card-room-infos">
-              <img src="https://source.unsplash.com/random/300x300/?hotel,<%= @room.id %>" />
+              <img src="https://source.unsplash.com/random/250x250/?hotel,<%= @room.id %>" />
                 <p> <strong> Adresse : </strong> <%= @room.hotel.address %></p>
                 <p> <strong> Nombre de personnes : </strong> <%= @room.capacity%></p>
               </div>
@@ -30,8 +30,8 @@
             <div class="col-5">
                 <div class="bg-light p-3">
                   <%= simple_form_for [@room, @booking], url: room_bookings_path, method: :post do |b| %>
-                    <%= b.input :starts_at, label: "Date d'arrivée", as: :string, type: :text, :input_html => { :class => 'datepicker' } %>
-                    <%= b.input :ends_at, label: "Date de départ", as: :string, type: :text, :input_html => { :class => 'datepicker' } %>
+                    <%= b.input :starts_at, label: "Date d'arrivée", as: :string, type: :text, :input_html => { :class => 'datepicker mb-3' } %>
+                    <%= b.input :ends_at, label: "Date de départ", as: :string, type: :text, :input_html => { :class => 'datepicker mb-3' } %>
                     <%= b.submit "Réserver", class: "search-btn" %>
                   <% end %>
                 </div>

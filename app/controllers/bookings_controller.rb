@@ -26,6 +26,10 @@ class BookingsController < ApplicationController
     @room = Room.find(@booking.room_id)
   end
 
+  def index
+    @booking_list = Booking.where("user_id = ?", current_user.id)
+  end
+
   private
 
   def booking_params
